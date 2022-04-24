@@ -7,6 +7,7 @@ import './App.css';
 const App = () => {
 
   const [ pic, setPic ] = useState('');
+  const [ title, setTitle ] = useState('');
 
   function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
@@ -38,6 +39,7 @@ const App = () => {
     // console.log(response.json());
     // setPic(data.hdurl);
     setPic(data.url);
+    setTitle(data.title);
     // console.log(data.hdurl);
   };
 
@@ -48,7 +50,8 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="header">
-        <div>NASA Picture of the Day</div>
+        {/* <div>NASA Picture of the Day</div> */}
+        <div>{title}</div>
         <div className="btn btn-primary" onClick={() => fetchPic()}>FETCH</div>
       </div>
       <div className="app">
